@@ -2,6 +2,13 @@ use yew::prelude::*;
 
 use crate::pages::content::Content;
 
+use yew::{
+    prelude::*,
+    services::{
+        ConsoleService,
+    },
+};
+
 
 pub enum Msg {
     AddOne,
@@ -19,9 +26,20 @@ impl Component for HomePage {
     type Properties = ();
 
     fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
+        ConsoleService::info("this is homepage..........");
         Self {
             link,
             value: 0,
+        }
+    }
+
+    fn rendered(&mut self, first_render: bool) {
+        if first_render {
+            // if let Some(input) = self.node_ref.cast::<HtmlInputElement>() {
+            //     input.focus();
+            // }
+
+            ConsoleService::info("this is first render homepage.....");
         }
     }
 

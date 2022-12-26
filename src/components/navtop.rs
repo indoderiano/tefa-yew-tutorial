@@ -1,4 +1,6 @@
 use yew::prelude::*;
+use yew_router::prelude::*;
+use crate::router::route::AppRoute;
 
 
 pub enum Msg {
@@ -43,6 +45,9 @@ impl Component for Navtop {
     }
 
     fn view(&self) -> Html {
+
+        type Anchor = RouterAnchor<AppRoute>;
+
         html! {
             <div
                 style="
@@ -50,8 +55,35 @@ impl Component for Navtop {
                     text-align: center;
                 "
             >
+                <span
+                    class="display-2"
+                >
+                    { "Navtop" }
+                </span>
 
-                { "Navtop" }
+
+                <div
+                    style="
+                        text-decoration: none;
+                        color: rgb(100,100,100);
+                    "
+                >
+                    <Anchor route=AppRoute::Home>
+                        <p
+                            class="link"
+                            style="
+                                text-decoration: none!important;
+                                color: rgb(100,100,100);
+                            "
+                        >
+                            {"Home"}
+                        </p>
+                    </Anchor>
+                </div>
+                <Anchor route=AppRoute::Other>
+                  {"Other"}
+                </Anchor>
+
             </div>
         }
     }
