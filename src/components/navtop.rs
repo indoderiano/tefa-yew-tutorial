@@ -3,8 +3,10 @@ use yew_router::prelude::*;
 use crate::router::route::AppRoute;
 
 
+
 pub enum Msg {
     AddOne,
+
 }
 
 
@@ -20,6 +22,7 @@ impl Component for Navtop {
     type Properties = ();
 
     fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
+
         Self {
             link,
             value: 0,
@@ -80,9 +83,29 @@ impl Component for Navtop {
                         </p>
                     </Anchor>
                 </div>
+
                 <Anchor route=AppRoute::Other>
                   {"Other"}
                 </Anchor>
+
+                <div
+                    style="
+                        text-decoration: none;
+                        color: rgb(100,100,100);
+                    "
+                >
+                    <Anchor route=AppRoute::InputPage>
+                        <p
+                            class="link"
+                            style="
+                                text-decoration: none!important;
+                                color: rgb(100,100,100);
+                            "
+                        >
+                            {"Page Input"}
+                        </p>
+                    </Anchor>
+                </div>
 
             </div>
         }

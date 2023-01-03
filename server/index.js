@@ -29,8 +29,14 @@ app.post('/attack', (req, res) => {
 
     console.log(req.body)
 
-    res.json('response dari api attack')
 
+  let is_password_correct = true;
+
+  if (is_password_correct) {
+    res.status(200).json("attack berhasil")
+  } else {
+    res.status(400).json("gagal")
+  }
 
 })
 

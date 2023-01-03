@@ -123,7 +123,10 @@ impl Component for OtherPage {
                 let callback = 
                     self.link.callback(|response: Response<Json<Result<String, anyhow::Error>>>| {
                         let (meta, Json(data)) = response.into_parts();
-                        // let status_number = meta.status.as_u16();
+
+                        let status_number = meta.status.as_u16();
+
+                        ConsoleService::info(&format!("status is {:?}", status_number));
 
                         match data {
                             Ok(dataok) => {

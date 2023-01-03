@@ -12,6 +12,7 @@ use yew::{
 
 pub enum Msg {
     AddOne,
+    InputText(String),
 }
 
 pub struct HomePage {
@@ -19,6 +20,7 @@ pub struct HomePage {
     // It can be used to send messages to the component
     link: ComponentLink<Self>,
     value: i64,
+    message: String,
 }
 
 impl Component for HomePage {
@@ -30,6 +32,7 @@ impl Component for HomePage {
         Self {
             link,
             value: 0,
+            message: String::from("initial message"),
         }
     }
 
@@ -49,6 +52,10 @@ impl Component for HomePage {
                 self.value += 1;
                 // the value has changed so we need to
                 // re-render for it to appear on the page
+                true
+            }
+            Msg::InputText(data) => {
+                self.message = data;
                 true
             }
         }
@@ -72,7 +79,28 @@ impl Component for HomePage {
                 class="text-big"
             >
                 { "HomePage" }
-                <Content/>
+                <Content message={self.message.clone()}/>
+
+                <div
+                    class="input-group mb-3"
+                    style="
+                        margin: auto;
+                        width: 400px;
+                    "
+                >
+                    <span class="input-group-text" id="basic-addon1">{ "@" }</span>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Message"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        // value={self.username.clone()}
+                        oninput=self.link.callback(|data: InputData| Msg::InputText(data.value))
+                        // disabled={true}
+                    />
+                </div>
             </div>
         }
     }

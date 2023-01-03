@@ -4,6 +4,7 @@ use yew_router::prelude::*;
 use crate::pages::{
     homepage::HomePage,
     other::OtherPage,
+    input::PageInput,
 };
 use crate::router::route::AppRoute;
 
@@ -45,6 +46,11 @@ impl Component for Render {
                 AppRoute::Other => {
                     html! {
                         <OtherPage/>
+                    }
+                }
+                AppRoute::InputPage => {
+                    html! {
+                        <PageInput/>
                     }
                 }
             }

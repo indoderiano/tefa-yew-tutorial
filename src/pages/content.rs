@@ -66,11 +66,15 @@ impl Component for Content {
         }
     }
 
-    fn change(&mut self, _props: Self::Properties) -> ShouldRender {
+    fn change(&mut self, props: Self::Properties) -> ShouldRender {
         // Should only return "true" if new properties are different to
         // previously received properties.
-        // This component has no properties so we will always return "false".
-        false
+        if self.props.message != props.message {
+            self.props.message = props.message;
+            true
+        } else {
+            false
+        }
     }
 
     fn view(&self) -> Html {
