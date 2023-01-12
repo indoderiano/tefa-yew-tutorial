@@ -6,6 +6,7 @@ mod components;
 mod pages;
 mod router;
 mod app;
+mod store;
 
 
 use app::App;

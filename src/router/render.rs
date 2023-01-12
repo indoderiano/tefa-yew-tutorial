@@ -5,6 +5,8 @@ use crate::pages::{
     homepage::HomePage,
     other::OtherPage,
     input::PageInput,
+    schedules::Schedules,
+    login::Login,
 };
 use crate::router::route::AppRoute;
 
@@ -51,6 +53,16 @@ impl Component for Render {
                 AppRoute::InputPage => {
                     html! {
                         <PageInput/>
+                    }
+                }
+                AppRoute::Schedules => {
+                    html! {
+                        <Schedules/>
+                    }
+                }
+                AppRoute::Login => {
+                    html! {
+                        <Login/>
                     }
                 }
             }

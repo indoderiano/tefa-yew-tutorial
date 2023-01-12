@@ -40,6 +40,59 @@ app.post('/attack', (req, res) => {
 
 })
 
+
+app.get('/schedules', (req, res) => {
+  var schedules = [
+    {
+      task: "save gotham",
+      superhero: "batman",
+      is_on_going: true,
+    },
+    {
+      task: "fly",
+      superhero: "superman",
+      is_on_going: true,
+    },
+    {
+      task: "live 100 years",
+      superhero: "wonder woman",
+      is_on_going: true,
+    },
+    {
+      task: "run",
+      superhero: "flash",
+      is_on_going: true,
+    },
+    {
+      task: "find atlantis city",
+      superhero: "aquaman",
+      is_on_going: false,
+    }
+  ];
+
+
+  let condition = "server error not";
+
+  if (condition == "server error") {
+    let error = {
+      error_description: "server currently error"
+    }
+    res.status(500).send(error)
+  } else if (condition == "authentication failed") {
+    let error = {
+      error_description: "auth failed"
+    }
+    res.status(400).send(error)
+  } else {
+    let data = {
+      list: schedules,
+      world: "DC"
+    };
+    res.status(200).send(data)
+  }
+})
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

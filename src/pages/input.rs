@@ -119,6 +119,7 @@ impl Component for PageInput {
                 ConsoleService::info(&format!("get data {:?}", data));
 
                 self.router_agent.send(ChangeRoute(AppRoute::Other.into()));
+                
                 true
             }
             Msg::Ignore => {
