@@ -24,7 +24,7 @@ pub struct SchedulesData {
     list: Option<Vec<Schedule>>,
     world: Option<String>,
     error_description: Option<String>,
-    other_data: String,
+    // other_data: String,
 }
 
 
