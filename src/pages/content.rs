@@ -4,24 +4,27 @@ pub enum Msg {
     AddOne,
 }
 
+use crate::types::var::Superhero;
+use crate::types::var::get_message;
 
-#[derive(Clone)]
-pub struct Superhero {
-    name: String,
-    age: u8,
-}
-impl Default for Superhero {
-    fn default() -> Superhero {
-        Superhero{
-            name: String::from("batman"),
-            age: 35
-        }
-    }
-}
 
-fn get_message() -> String {
-    String::from("message from function")
-}
+// #[derive(Clone)]
+// pub struct Superhero {
+//     name: String,
+//     age: u8,
+// }
+// impl Default for Superhero {
+//     fn default() -> Superhero {
+//         Superhero{
+//             name: String::from("batman"),
+//             age: 35
+//         }
+//     }
+// }
+
+// fn get_message() -> String {
+//     String::from("message from function")
+// }
 
 
 #[derive(Properties, Clone)]

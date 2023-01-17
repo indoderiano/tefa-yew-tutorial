@@ -4,19 +4,22 @@ use yewdux::prelude::*;
 
 #[derive(Clone, Debug)]
 pub struct State {
-    count: u32,
+    pub count: u32,
+    pub username: Option<String>,
 }
 
 pub enum CounterInput {
     /// Increment count by one.
     Increment,
     Reset,
+    UpdateUsername(String),
 }
 
 pub enum CounterOutput {
     /// Output the current count but doubled.
     Doubled(u32),
     AddFive(u32),
+    Ignore,
 }
 
 pub struct CounterStore {
@@ -33,7 +36,10 @@ impl Store for CounterStore {
     fn new(link: StoreLink<Self>) -> Self {
         Self {
             link,
-            state: Rc::new(State { count: 0 }),
+            state: Rc::new(State {
+                count: 0,
+                username: None,
+            }),
         }
     }
 
@@ -55,6 +61,11 @@ impl Store for CounterStore {
                 // Response with current count doubled.
                 self.link
                     .respond(who, CounterOutput::AddFive(state.count + 5));
+            }
+            CounterInput::UpdateUsername(username) => {
+                state.username = Some(username);
+                self.link
+                    .respond(who, CounterOutput::Ignore);
             }
         }
 

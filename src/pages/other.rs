@@ -6,24 +6,28 @@ use yew::{
         ConsoleService,
     },
 };
-use serde::{
-    Deserialize,
-    Serialize,
+// use serde::{
+//     Deserialize,
+//     Serialize,
+// };
+use crate::types::var::{
+    User,
+    Villain,
 };
 
 
 
-#[derive(Deserialize, Debug, Clone)]
-pub struct User {
-    name: Option<String>,
-    superhero: Option<String>,
-}
+// #[derive(Deserialize, Debug, Clone)]
+// pub struct User {
+//     name: Option<String>,
+//     superhero: Option<String>,
+// }
 
-#[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct Villain {
-    name: String,
-    supervillain: String,
-}
+// #[derive(Deserialize, Serialize, Debug, Clone)]
+// pub struct Villain {
+//     name: String,
+//     supervillain: String,
+// }
 
 
 

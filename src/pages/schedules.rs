@@ -6,26 +6,30 @@ use yew::{
         ConsoleService,
     },
 };
-use serde::{
-    Deserialize,
-    Serialize,
+// use serde::{
+//     Deserialize,
+//     Serialize,
+// };
+use crate::types::var::{
+    Schedule,
+    SchedulesData,
 };
 
 
-#[derive(Deserialize, Debug, Clone)]
-pub struct Schedule {
-    task: String,
-    superhero: String,
-    is_on_going: bool,
-}
+// #[derive(Deserialize, Debug, Clone)]
+// pub struct Schedule {
+//     task: String,
+//     superhero: String,
+//     is_on_going: bool,
+// }
 
-#[derive(Deserialize, Debug, Clone)]
-pub struct SchedulesData {
-    list: Option<Vec<Schedule>>,
-    world: Option<String>,
-    error_description: Option<String>,
-    // other_data: String,
-}
+// #[derive(Deserialize, Debug, Clone)]
+// pub struct SchedulesData {
+//     list: Option<Vec<Schedule>>,
+//     world: Option<String>,
+//     error_description: Option<String>,
+//     // other_data: String,
+// }
 
 
 

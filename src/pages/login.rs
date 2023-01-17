@@ -21,6 +21,7 @@ pub enum Msg {
     Output(CounterOutput),
     IncreaseCount,
     ResetCount,
+    Login,
 }
 
 pub struct Login {
@@ -66,6 +67,10 @@ impl Component for Login {
                         ConsoleService::info(&format!("count add five would be {:?}", n));
                         true
                     }
+                    _ => {
+                        ConsoleService::info(&format!("ignore"));
+                        false
+                    }
                 }
             }
             Msg::IncreaseCount => {
@@ -74,6 +79,10 @@ impl Component for Login {
             }
             Msg::ResetCount => {
                 self.dispatch.send(CounterInput::Reset);
+                true
+            }
+            Msg::Login => {
+                self.dispatch.send(CounterInput::UpdateUsername(String::from("bruce wayne")));
                 true
             }
         }
@@ -117,6 +126,16 @@ impl Component for Login {
                         onclick=self.link.callback(|_| Msg::ResetCount)
                     >
                         { "Reset Count" }
+                    </button>
+                </div>
+
+                <div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-primary"
+                        onclick=self.link.callback(|_| Msg::Login)
+                    >
+                        { "Login" }
                     </button>
                 </div>
 

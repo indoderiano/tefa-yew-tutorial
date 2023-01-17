@@ -10,18 +10,21 @@ use yew::{
 };
 use yew_router::prelude::*;
 use yew_router::agent::RouteRequest::ChangeRoute;
-use serde::{
-    Deserialize,
-    Serialize,
-};
+// use serde::{
+//     Deserialize,
+//     Serialize,
+// };
 use crate::router::route::AppRoute;
+use crate::types::var::{
+    UserAccount,
+};
 
 
-#[derive(Serialize, Debug, Clone)]
-pub struct UserAccount {
-    username: String,
-    status: String,
-}
+// #[derive(Serialize, Debug, Clone)]
+// pub struct UserAccount {
+//     username: String,
+//     status: String,
+// }
 
 pub enum Msg {
     InputText(String),

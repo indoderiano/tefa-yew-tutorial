@@ -7,6 +7,7 @@ mod pages;
 mod router;
 mod app;
 mod store;
+mod types;
 
 
 use app::App;
