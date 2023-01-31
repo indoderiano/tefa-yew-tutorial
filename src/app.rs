@@ -1,7 +1,9 @@
 use yew::{
     prelude::*,
+    format::{Json},
     services::{
         ConsoleService,
+        storage::{StorageService},
     },
 };
 use yew_router::prelude::*;
@@ -25,18 +27,24 @@ use crate::store::store::{
     State,
 };
 
+use crate::types::var::{
+    Localstorage,
+};
+
 
 
 
 pub enum Msg {
     State(Rc<State>),
     Output(CounterOutput),
+    AutoLogin,
 }
 
 
 pub struct App {
     dispatch: Dispatch<CounterStore>,
     username: Option<String>,
+    link: ComponentLink<Self>,
 }
 
 impl Component for App {
@@ -50,9 +58,18 @@ impl Component for App {
 
             Dispatch::bridge(on_state, on_output)
         };
+
+
         Self {
             dispatch,
             username: None,
+            link,
+        }
+    }
+
+    fn rendered(&mut self, first_render: bool) {
+        if first_render {
+            self.link.send_message(Msg::AutoLogin);
         }
     }
 
@@ -80,6 +97,37 @@ impl Component for App {
                     }
                 }
             }
+            Msg::AutoLogin => {
+
+                // GET LOCALSTORAGE
+                let storage = StorageService::new(Area::Local).expect("storage was disabled");
+                
+                let localstorage_data = {
+                    if let Json(Ok(data)) = storage.restore("superhero") {
+                        data
+                    } else {
+                        ConsoleService::info("token does not exist");
+                        Localstorage {
+                            user: String::from(""),
+                        }
+
+                        // LocalStorage::new()
+                    }
+                };
+
+                ConsoleService::info(&format!("localstorage data adalah {:?}", localstorage_data));
+
+                // IF LOCALSTORAGE EXISTS
+                // UPDATE STATE MANAGEMENT
+                if localstorage_data.user.is_empty() {
+                    // DO NOTHING
+                } else {
+                    self.dispatch.send(CounterInput::UpdateUsername(localstorage_data.user.clone()));
+                }
+
+                true
+
+            }
         }
     }
 
@@ -91,7 +139,7 @@ impl Component for App {
     }
 
     fn view(&self) -> Html {
-
+        
         let is_logged_in = self.username.is_some();
 
         if is_logged_in {
@@ -111,14 +159,5 @@ impl Component for App {
                 </div>
             }
         }
-
-        // html! {
-        //     <div>
-        //         <Navtop/>
-
-        //         // <Router<AppRoute, ()> render=render/>
-        //         <Render/>
-        //     </div>
-        // }
     }
 }

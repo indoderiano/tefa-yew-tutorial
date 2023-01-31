@@ -5,6 +5,10 @@ use yew::{
     prelude::*,
     services::{
         ConsoleService,
+        storage::{ StorageService },
+    },
+    format::{
+        Json,
     },
 };
 
@@ -13,6 +17,15 @@ use crate::store::store::{
     CounterOutput,
     CounterInput,
     State,
+};
+
+use serde::{
+    // Deserialize,
+    Serialize,
+};
+
+use crate::types::var::{
+    Localstorage,
 };
 
 
@@ -83,6 +96,22 @@ impl Component for Login {
             }
             Msg::Login => {
                 self.dispatch.send(CounterInput::UpdateUsername(String::from("bruce wayne")));
+
+
+                // UPDATE LOCALSTORAGE
+                let mut storage = StorageService::new(Area::Local).expect("storage was disabled");
+
+
+                let user_data = Localstorage {
+                    user: "bruce wayne".to_string(),
+                };
+                
+                let user_data_json = Json(&user_data);
+
+                // // let localstorage_data: Result<String, anyhow::Error> = Ok(String::from("tokendata_telkomdomain"));
+                storage.store("superhero", user_data_json);
+
+
                 true
             }
         }

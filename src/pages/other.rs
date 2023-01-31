@@ -176,6 +176,16 @@ impl Component for OtherPage {
             >
                 { "Other Page" }
 
+                <div
+                    style="
+                        color: red;
+
+                    "
+                    class="class-1"
+                >
+                    { "michael" }
+                </div>
+
                 <div>
                     <button
                         class="display-2"

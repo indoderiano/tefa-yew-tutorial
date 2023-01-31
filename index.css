@@ -15,3 +15,7 @@ a {
 .link:hover {
     color: red!important;
 }
+
+.class-1 {
+    font-size: 24px;
+}

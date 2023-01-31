@@ -52,6 +52,11 @@ impl Default for Superhero {
     }
 }
 
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Localstorage {
+    pub user: String,
+}
+
 pub fn get_message() -> String {
     String::from("message from function")
 }

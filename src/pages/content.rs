@@ -78,6 +78,7 @@ impl Component for Content {
         } else {
             false
         }
+        // false
     }
 
     fn view(&self) -> Html {
