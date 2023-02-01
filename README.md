@@ -13,14 +13,13 @@ do build sample app docs
 
 
 Yew tutorial 2
-Recap from last app
-Rust modules
-Import export component
-Component properties
-﻿- prop_or_default
-﻿- prop_or(value)
-﻿- prop_or_else()
-Router
+- Rust modules
+- Import export component
+- Component properties
+  - prop_or_default
+  - prop_or(value)
+  - prop_or_else()
+- Router
 
 
 
