@@ -26,43 +26,42 @@ Yew tutorial 2
 
 
 Yew tutorial 3
-restructuring codes
-event msg
-express js tutorial
-install postman
-yew fetch service
-﻿- get
-﻿- post with body
-﻿- receive data with data type option
-homework: buat login box username dan password, 
+- restructuring codes
+- event msg
+- express js tutorial
+- install postman
+- yew fetch service
+  - get
+  - post with body
+  - receive data with data type option
+- homework: buat login box username dan password, 
 
 
 
 Yew tutorial 4
-input text
-input checkbox
-redirect
-fn change
+- input text
+- input checkbox
+- redirect
+- fn change
 
 
 
 
 Yew tutorial 5
-How to handle response from server
-state management
+- How to handle response from server
+- state management
 
 
 Yew tutorial 6
-recap
-restructuring , all data types
-login method, conditional logic
-﻿- import variable state.user to app.rs
-﻿- add update state.username from login event
-﻿- add counterinput event, updateuser
-﻿- check flow data update
-﻿- create conditional rendering in app.rs
-﻿- create new component render_guest.rs
-﻿- check render_guest display
-﻿- create new component render_member.rs
-﻿- check render_member display
+- restructuring , all data types
+- login method, conditional logic
+  - import variable state.user to app.rs
+  - add update state.username from login event
+  - add counterinput event, updateuser
+  - check flow data update
+  - create conditional rendering in app.rs
+  - create new component render_guest.rs
+  - check render_guest display
+  - create new component render_member.rs
+  - check render_member display
 
