@@ -41,34 +41,57 @@ app.post('/attack', (req, res) => {
 })
 
 
-app.get('/schedules', (req, res) => {
-  var schedules = [
-    {
-      task: "save gotham",
-      superhero: "batman",
-      is_on_going: true,
-    },
-    {
-      task: "fly",
-      superhero: "superman",
-      is_on_going: true,
-    },
-    {
-      task: "live 100 years",
-      superhero: "wonder woman",
-      is_on_going: true,
-    },
-    {
-      task: "run",
-      superhero: "flash",
-      is_on_going: true,
-    },
-    {
-      task: "find atlantis city",
-      superhero: "aquaman",
-      is_on_going: false,
-    }
-  ];
+app.get('/schedules/:id', (req, res) => {
+  console.log(req.params);
+
+  var schedules;
+
+  var id = req.params.id;
+
+  if (id == '"1"') {
+    schedules = [
+      {
+        task: "save gotham",
+        superhero: "batman",
+        is_on_going: true,
+      },
+      {
+        task: "fly",
+        superhero: "superman",
+        is_on_going: true,
+      },
+      {
+        task: "live 100 years",
+        superhero: "wonder woman",
+        is_on_going: true,
+      },
+      {
+        task: "run",
+        superhero: "flash",
+        is_on_going: true,
+      },
+      {
+        task: "find atlantis city",
+        superhero: "aquaman",
+        is_on_going: false,
+      }
+    ];
+  } else {
+    schedules = [
+      {
+        task: "save universe",
+        superhero: "ironman",
+        is_on_going: true,
+      },
+      {
+        task: "fly",
+        superhero: "thor",
+        is_on_going: true,
+      },
+    ];
+  }
+
+  
 
 
   let condition = "server error not";

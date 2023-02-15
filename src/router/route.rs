@@ -5,8 +5,8 @@ use yew_router::prelude::*;
 pub enum AppRoute {
     #[to="/login"]
     Login,
-    #[to="/schedules"]
-    Schedules,
+    #[to="/schedules/{schedule_id}"]
+    Schedules { schedule_id: String },
     #[to="/input"]
     InputPage,
     #[to="/other"]

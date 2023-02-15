@@ -13,6 +13,7 @@ pub enum CounterInput {
     Increment,
     Reset,
     UpdateUsername(String),
+    RemoveUsername,
 }
 
 pub enum CounterOutput {
@@ -64,6 +65,11 @@ impl Store for CounterStore {
             }
             CounterInput::UpdateUsername(username) => {
                 state.username = Some(username);
+                self.link
+                    .respond(who, CounterOutput::Ignore);
+            }
+            CounterInput::RemoveUsername => {
+                state.username = None;
                 self.link
                     .respond(who, CounterOutput::Ignore);
             }

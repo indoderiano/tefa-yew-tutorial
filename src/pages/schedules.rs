@@ -32,6 +32,11 @@ use crate::types::var::{
 // }
 
 
+#[derive(Properties, Clone)]
+pub struct SchedulesProps {
+    pub schedule_id: String,
+}
+
 
 
 pub enum Msg {
@@ -45,19 +50,22 @@ pub struct Schedules {
     link: ComponentLink<Self>,
     schedules: Vec<Schedule>,
     error: Option<String>,
+    schedule_id: String,
 }
 
 impl Component for Schedules {
     type Message = Msg;
-    type Properties = ();
+    type Properties = SchedulesProps;
 
-    fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
+    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+
 
         Self {
             fetch_task: None,
             link,
             schedules: vec![],
             error: None,
+            schedule_id: props.schedule_id,
         }
     }
 
@@ -65,10 +73,12 @@ impl Component for Schedules {
         match msg {
             Msg::RequestData => {
 
+                ConsoleService::info(&format!("schedule id is {:?}", self.schedule_id));
+
 
                 // FETCHING....
 
-                let request = Request::get("http://localhost:3000/schedules")
+                let request = Request::get(format!("http://localhost:3000/schedules/{:?}", self.schedule_id))
                     // .header("access_token", get_access_token().unwrap_or_default())
                     .body(Nothing)
                     .expect("Could not build request.");

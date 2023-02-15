@@ -60,9 +60,9 @@ impl Component for RenderMember {
                         <PageInput/>
                     }
                 }
-                AppRoute::Schedules => {
+                AppRoute::Schedules { schedule_id } => {
                     html! {
-                        <Schedules/>
+                        <Schedules schedule_id=schedule_id/>
                     }
                 }
 
