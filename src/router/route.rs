@@ -7,6 +7,8 @@ pub enum AppRoute {
     Login,
     #[to="/schedules/{schedule_id}"]
     Schedules { schedule_id: String },
+    #[to="/tasks/{task_id}"]
+    Tasks { task_id: String },
     #[to="/input"]
     InputPage,
     #[to="/other"]

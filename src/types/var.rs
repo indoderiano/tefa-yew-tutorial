@@ -32,6 +32,26 @@ pub struct SchedulesData {
     // other_data: String,
 }
 
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct Task {
+    pub name: String,
+    pub status: String,
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct TasksData {
+    pub list: Option<Vec<Task>>,
+    pub nationality: Option<String>,
+
+    pub error_description: Option<String>,
+    // pub error_description: Option<String>,
+}
+
+
+
+
+
 #[derive(Serialize, Debug, Clone)]
 pub struct UserAccount {
     pub username: String,

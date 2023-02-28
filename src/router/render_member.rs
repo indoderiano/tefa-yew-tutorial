@@ -10,6 +10,7 @@ use crate::pages::{
     other::OtherPage,
     input::PageInput,
     schedules::Schedules,
+    tasks::Tasks,
     login::Login,
 };
 use crate::router::route::AppRoute;
@@ -63,6 +64,11 @@ impl Component for RenderMember {
                 AppRoute::Schedules { schedule_id } => {
                     html! {
                         <Schedules schedule_id=schedule_id/>
+                    }
+                }
+                AppRoute::Tasks { task_id } => {
+                    html! {
+                        <Tasks task_id=task_id/>
                     }
                 }
 

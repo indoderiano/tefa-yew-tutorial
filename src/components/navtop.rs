@@ -172,7 +172,7 @@ impl Component for Navtop {
                         color: rgb(100,100,100);
                     "
                 >
-                    <Anchor route=AppRoute::Schedules { schedule_id: String::from("2") }>
+                    <Anchor route=AppRoute::Schedules { schedule_id: String::from("1") }>
                         <p
                             class="link"
                             style="
@@ -181,6 +181,26 @@ impl Component for Navtop {
                             "
                         >
                             {"Schedules"}
+                        </p>
+                    </Anchor>
+                </div>
+
+
+                <div
+                    style="
+                        text-decoration: none;
+                        color: rgb(100,100,100);
+                    "
+                >
+                    <Anchor route=AppRoute::Tasks { task_id: String::from("1") }>
+                        <p
+                            class="link"
+                            style="
+                                text-decoration: none!important;
+                                color: rgb(100,100,100);
+                            "
+                        >
+                            {"Tasks"}
                         </p>
                     </Anchor>
                 </div>

@@ -116,6 +116,58 @@ app.get('/schedules/:id', (req, res) => {
 })
 
 
+
+app.get('/tasks/:id', (req, res) => {
+
+
+  let token = "wrong token";
+
+
+
+
+  let list = [
+    {
+      name: "bruce",
+      status: "single",
+    },
+    {
+      name: "clark",
+      status: "single",
+    }
+  ]
+
+  let data = {
+    list: list,
+    nationality: "hollywood",
+  }
+
+
+
+
+
+
+  if (token == "abc") {
+
+    res.status(200).send(data)
+
+  } else {
+
+    let error = {
+      error_description: "token is not verified"
+    };
+
+
+    res.status(400).send(error)
+  }
+
+
+})
+
+
+
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

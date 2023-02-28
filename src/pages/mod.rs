@@ -4,3 +4,4 @@ pub mod other;
 pub mod input;
 pub mod schedules;
 pub mod login;
+pub mod tasks;
