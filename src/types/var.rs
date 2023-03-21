@@ -80,3 +80,13 @@ pub struct Localstorage {
 pub fn get_message() -> String {
     String::from("message from function")
 }
+
+
+
+
+
+#[derive(Debug, Clone, Serialize)]
+pub struct UserLogin {
+    pub username: String,
+    pub password: String,
+}

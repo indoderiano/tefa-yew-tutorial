@@ -172,6 +172,25 @@ impl Component for Navtop {
                         color: rgb(100,100,100);
                     "
                 >
+                    <Anchor route=AppRoute::LoginApp>
+                        <p
+                            class="link"
+                            style="
+                                text-decoration: none!important;
+                                color: rgb(100,100,100);
+                            "
+                        >
+                            {"Login App"}
+                        </p>
+                    </Anchor>
+                </div>
+
+                <div
+                    style="
+                        text-decoration: none;
+                        color: rgb(100,100,100);
+                    "
+                >
                     <Anchor route=AppRoute::Schedules { schedule_id: String::from("1") }>
                         <p
                             class="link"

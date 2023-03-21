@@ -5,3 +5,5 @@ pub mod input;
 pub mod schedules;
 pub mod login;
 pub mod tasks;
+pub mod login_app;
+pub mod child;

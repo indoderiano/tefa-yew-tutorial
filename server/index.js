@@ -164,6 +164,26 @@ app.get('/tasks/:id', (req, res) => {
 })
 
 
+app.post('/login-app', (req, res) => {
+  console.log(req.body)
+
+
+  // res.status(200).json("data from server")
+
+  res.status(400).json("status 400")
+})
+
+
+
+app.get('login-app-get', (req, res) => {
+
+
+  // CONNECT KE DATABASE
+  // GET DATA DARI DATABASE
+  // RETURN DATA KE FE
+})
+
+
 
 
 

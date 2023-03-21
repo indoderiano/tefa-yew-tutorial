@@ -3,6 +3,8 @@ use yew_router::prelude::*;
 
 #[derive(Switch, Clone)]
 pub enum AppRoute {
+    #[to="/login-app"]
+    LoginApp,
     #[to="/login"]
     Login,
     #[to="/schedules/{schedule_id}"]

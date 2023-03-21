@@ -1,6 +1,7 @@
 use yew::prelude::*;
 
 use crate::pages::content::Content;
+use crate::pages::child::Child;
 
 use yew::{
     prelude::*,
@@ -12,6 +13,7 @@ use yew::{
 
 pub enum Msg {
     AddOne,
+    AddRandom(i64),
     InputText(String),
 }
 
@@ -52,6 +54,10 @@ impl Component for HomePage {
                 self.value += 1;
                 // the value has changed so we need to
                 // re-render for it to appear on the page
+                true
+            }
+            Msg::AddRandom(value) => {
+                self.value += value;
                 true
             }
             Msg::InputText(data) => {
@@ -101,6 +107,22 @@ impl Component for HomePage {
                         // disabled={true}
                     />
                 </div>
+
+                <div
+                    style="margin-top: 20px;"
+                >
+                    { "VALUE IS " }
+                    { self.value.clone() }
+                </div>
+                <button
+                    onclick=self.link.callback(|_| Msg::AddOne)
+                >
+                    { "ADD ONE" }
+                </button>
+                <Child
+                    callback_add_one=self.link.callback(|_| Msg::AddOne)
+                    callback_add_random=self.link.callback(Msg::AddRandom)
+                />
             </div>
         }
     }
